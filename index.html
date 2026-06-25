@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avantika Agarwal — Technical Writing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #111827;
+    --ink-2: #374151;
+    --ink-3: #6b7280;
+    --ink-4: #9ca3af;
+    --canvas: #fafaf8;
+    --canvas-2: #f3f3ef;
+    --rule: #e5e5e0;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+    --navy: #1e3a5f;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Lora', Georgia, serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--canvas);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    background: rgba(250,250,248,0.94);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    gap: 1.5rem;
+  }
+  .wordmark {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  nav { display: flex; gap: 1.5rem; align-items: center; }
+  nav a {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  nav a:hover { color: var(--amber); }
+  .cta-pill {
+    background: var(--navy);
+    color: #fff !important;
+    padding: 0.42rem 1.1rem;
+    border-radius: 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .cta-pill:hover { background: var(--amber) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: end;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--amber);
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.75rem;
+    background: var(--amber-light);
+    border-radius: 2rem;
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  h1 em { font-style: italic; color: var(--navy); }
+  .hero-bio {
+    font-size: 1rem;
+    color: var(--ink-2);
+    line-height: 1.8;
+    max-width: 460px;
+    margin-bottom: 1.75rem;
+  }
+  .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--rule);
+    border-radius: 2rem;
+    background: #fff;
+    transition: all 0.15s;
+  }
+  .hero-link:hover { border-color: var(--amber); color: var(--amber); }
+
+  /* RIGHT: META CARD */
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1.75rem;
+    background: var(--canvas-2);
+    border-radius: 12px;
+    border: 1px solid var(--rule);
+  }
+  .meta-row { display: flex; align-items: flex-start; gap: 0.75rem; }
+  .meta-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    font-weight: 600;
+    min-width: 78px;
+    padding-top: 0.1rem;
+    flex-shrink: 0;
+  }
+  .meta-value { color: var(--ink-2); font-size: 0.875rem; line-height: 1.55; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    font-size: 0.7rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 2rem;
+    padding: 0.2rem 0.65rem;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  .badge-pill {
+    display: inline-block;
+    font-size: 0.68rem;
+    padding: 0.18rem 0.6rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    margin-right: 0.35rem;
+    margin-bottom: 0.25rem;
+  }
+  .bp-gold { background: #fef3c7; color: #92400e; }
+  .bp-blue { background: #eff6ff; color: #1e40af; }
+
+  /* ── MAIN LAYOUT ── */
+  .main-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar { position: sticky; top: 80px; }
+  .sidebar-heading {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-4);
+    margin-bottom: 1rem;
+  }
+  .sidebar-nav { display: flex; flex-direction: column; }
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.58rem 0.85rem;
+    border-left: 2px solid transparent;
+    text-decoration: none;
+    font-size: 0.82rem;
+    color: var(--ink-3);
+    font-weight: 500;
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+  .sidebar-link:hover, .sidebar-link.active {
+    color: var(--navy);
+    border-left-color: var(--amber);
+    background: var(--amber-light);
+    border-radius: 0 6px 6px 0;
+  }
+  .sidebar-count {
+    margin-left: auto;
+    font-size: 0.65rem;
+    background: var(--canvas-2);
+    color: var(--ink-4);
+    border-radius: 2rem;
+    padding: 0.1rem 0.45rem;
+    font-weight: 600;
+  }
+  .sidebar-divider { height: 1px; background: var(--rule); margin: 1rem 0; }
+  .sidebar-coming { font-size: 0.75rem; color: var(--ink-4); font-style: italic; padding-left: 0.85rem; line-height: 1.6; }
+
+  /* ── WRITING SECTIONS ── */
+  .writing-sections { display: flex; flex-direction: column; gap: 3.5rem; }
+  .category-block { }
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .category-badge {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.28rem 0.7rem;
+    border-radius: 2rem;
+    border: 1px solid;
+  }
+  .badge-systems   { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+  .badge-cv        { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+  .badge-apps      { background: #fdf4ff; color: #7e22ce; border-color: #e9d5ff; }
+  .badge-ml        { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+  .badge-research  { background: #fafaf8; color: #374151; border-color: #d1d5db; }
+  .category-count { font-size: 0.72rem; color: var(--ink-4); margin-left: auto; font-weight: 500; }
+
+  /* source label */
+  .source-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.7rem;
+  }
+  .source-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0.5; }
+
+  /* ── ARTICLE CARDS ── */
+  .article-card {
+    display: block;
+    text-decoration: none;
+    padding: 1.4rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    margin-bottom: 0.85rem;
+    transition: all 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--rule);
+    transition: background 0.18s;
+  }
+  .article-card:hover {
+    border-color: #d1d5db;
+    transform: translateX(3px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+  .article-card:hover::before { background: var(--amber); }
+  .article-title {
+    font-family: var(--font-serif);
+    font-size: 1.06rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .article-desc {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    line-height: 1.7;
+    margin-bottom: 0.85rem;
+  }
+  .article-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .topic-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .topic-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-4);
+    background: var(--canvas-2);
+    border-radius: 2rem;
+    padding: 0.18rem 0.55rem;
+    font-weight: 500;
+  }
+  .read-link {
+    font-size: 0.75rem;
+    color: var(--amber);
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .read-link svg { transition: transform 0.15s; }
+  .article-card:hover .read-link svg { transform: translateX(3px); }
+
+  /* ── COMING SOON ── */
+  .coming-card {
+    padding: 1.1rem 1.5rem;
+    border-radius: 10px;
+    border: 1px dashed #d1d5db;
+    background: var(--canvas-2);
+    margin-bottom: 0.6rem;
+  }
+  .coming-card-title { font-size: 0.9rem; font-weight: 500; color: var(--ink-3); margin-bottom: 0.2rem; }
+  .coming-card-sub { font-size: 0.76rem; color: var(--ink-4); font-style: italic; }
+
+  /* ── RESEARCH SECTION ── */
+  .research-section {
+    background: var(--navy);
+    color: #fff;
+    padding: 4rem 2rem;
+  }
+  .research-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 0.75rem;
+  }
+  .research-inner h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .research-intro {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+  }
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .research-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 1.4rem;
+    transition: background 0.15s;
+  }
+  .research-card:hover { background: rgba(255,255,255,0.1); }
+  .research-card-title {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+  .research-card-desc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    margin-bottom: 0.9rem;
+  }
+  .research-card-status {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2rem;
+    border: 1px solid;
+  }
+  .status-prep { background: rgba(253,186,116,0.15); color: #fbbf24; border-color: rgba(251,191,36,0.3); }
+  .status-ongoing { background: rgba(167,243,208,0.1); color: #6ee7b7; border-color: rgba(110,231,183,0.25); }
+
+  /* ── ABOUT ── */
+  .about-section {
+    border-top: 1px solid var(--rule);
+    padding: 4rem 2rem;
+  }
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-inner h2 {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.1rem;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+  .about-inner p {
+    font-size: 0.93rem;
+    color: var(--ink-2);
+    line-height: 1.8;
+    margin-bottom: 0.9rem;
+  }
+  .awards-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .award-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    background: var(--canvas-2);
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+  }
+  .award-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+  .award-name { font-size: 0.88rem; font-weight: 500; color: var(--ink); line-height: 1.4; }
+  .award-sub { font-size: 0.76rem; color: var(--ink-4); margin-top: 0.1rem; }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: all 0.15s;
+    margin-bottom: 0.6rem;
+  }
+  .contact-row:hover { border-color: var(--amber); color: var(--navy); }
+  .contact-icon { font-size: 0.9rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ink-4);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem 2.5rem; }
+    .main-wrapper { grid-template-columns: 1fr; padding: 2rem 1.5rem 4rem; }
+    .sidebar { position: static; display: none; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    nav .hide-sm { display: none; }
+    header { padding: 0 1rem; }
+    .research-section { padding: 3rem 1.5rem; }
+    .about-section { padding: 3rem 1.5rem; }
+  }
+
+  svg { display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="wordmark" href="#">Avantika Agarwal</a>
+    <nav>
+      <a href="#writing" class="hide-sm">Writing</a>
+      <a href="#research-section" class="hide-sm">Research</a>
+      <a href="#about">About</a>
+      <a href="mailto:agarwalavantikaint@gmail.com" class="cta-pill">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="eyebrow">Technical Writing Portfolio</span>
+    <h1>Writing at the edge of<br><em>speech, systems &amp; AI</em></h1>
+    <p class="hero-bio">
+      I'm a machine learning researcher and technical writer with an M.Tech from DA-IICT. My writing bridges the gap between complex engineering and clear, precise communication — covering computer vision, AI systems, healthcare AI, and ML fundamentals, with original research in speech representation learning and speaker verification.
+    </p>
+    <div class="hero-links">
+      <a href="https://linkedin.com/in/agarwalavantika" target="_blank" rel="noopener" class="hero-link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V8c0-1 .5-2 2-2s2 1 2 2v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/agarwalavantika" target="_blank" rel="noopener" class="hero-link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.167A5.833 5.833 0 001.167 7c0 2.578 1.672 4.764 3.99 5.536.292.054.398-.127.398-.282v-1.05c-1.622.352-1.964-.782-1.964-.782-.265-.674-.647-.854-.647-.854-.529-.36.04-.354.04-.354.585.041.893.6.893.6.52.89 1.364.634 1.696.484.053-.376.203-.634.37-.779-1.295-.147-2.656-.647-2.656-2.88 0-.636.227-1.156.6-1.563-.06-.148-.26-.74.057-1.542 0 0 .49-.157 1.603.598A5.582 5.582 0 017 4.626c.496.002.994.067 1.46.197 1.112-.755 1.6-.598 1.6-.598.318.802.118 1.394.058 1.542.374.407.6.927.6 1.563 0 2.239-1.364 2.731-2.662 2.876.209.18.396.534.396 1.077v1.597c0 .156.105.338.4.281A5.836 5.836 0 0012.833 7 5.833 5.833 0 007 1.167z" fill="currentColor"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:agarwalavantikaint@gmail.com" class="hero-link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 4l6 4 6-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Email me
+      </a>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div class="meta-row">
+      <span class="meta-label">Education</span>
+      <span class="meta-value">M.Tech in ICT (Machine Learning), DA-IICT Gandhinagar · CPI 8.61</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Research</span>
+      <span class="meta-value">Speaker verification for dysarthric speech · ECAPA-TDNN · Cross-lingual generalization</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Published in</span>
+      <span class="meta-value">Technolynx · GeeksforGeeks · IEEE (in preparation)</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Recognition</span>
+      <div>
+        <span class="badge-pill bp-gold">Harvard WEAmplify Scholar</span>
+        <span class="badge-pill bp-blue">GATE 96.46%ile</span>
+        <span class="badge-pill bp-blue">UGC NET Qualified</span>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="meta-label">Writing on</span>
+      <div class="tag-list">
+        <span class="tag">AI Systems</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">Speech AI</span>
+        <span class="tag">Healthcare AI</span>
+        <span class="tag">ML Fundamentals</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN: SIDEBAR + ARTICLES -->
+<div class="main-wrapper" id="writing">
+  <aside class="sidebar">
+    <p class="sidebar-heading">Published writing</p>
+    <nav class="sidebar-nav">
+      <a href="#ai-systems" class="sidebar-link active">AI Systems <span class="sidebar-count">2</span></a>
+      <a href="#computer-vision" class="sidebar-link">Computer Vision <span class="sidebar-count">1</span></a>
+      <a href="#ai-applications" class="sidebar-link">AI Applications <span class="sidebar-count">2</span></a>
+      <a href="#ml-fundamentals" class="sidebar-link">ML Fundamentals <span class="sidebar-count">1</span></a>
+    </nav>
+    <div class="sidebar-divider"></div>
+    <p class="sidebar-heading">Coming soon</p>
+    <p class="sidebar-coming">Original research writing from M.Tech work in speech processing and representation learning.</p>
+  </aside>
+
+  <main class="writing-sections">
+
+    <!-- AI SYSTEMS -->
+    <section class="category-block" id="ai-systems">
+      <div class="category-header">
+        <span class="category-badge badge-systems">AI Systems</span>
+        <span class="category-count">2 articles</span>
+      </div>
+      <div class="source-label"><span class="source-dot"></span>Technolynx</div>
+
+      <a class="article-card"
+         href="https://www.technolynx.com/post/case-study-performance-modelling-of-ai-inference-on-gpus"
+         target="_blank" rel="noopener">
+        <p class="article-title">Performance Modeling of AI Inference on GPUs</p>
+        <p class="article-desc">A rigorous analysis of how modern AI inference workloads behave on GPU hardware — covering latency, throughput, memory utilization, batching strategies, and optimization techniques for production-scale deployment.</p>
+        <div class="article-footer">
+          <div class="topic-tags">
+            <span class="topic-tag">GPU Computing</span>
+            <span class="topic-tag">Deep Learning</span>
+            <span class="topic-tag">Performance Engineering</span>
+          </div>
+          <span class="read-link">Read <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <a class="article-card"
+         href="https://www.technolynx.com/post/case-study-smart-cart-object-detection-tracking"
+         target="_blank" rel="noopener">
+        <p class="article-title">AI-Powered Smart Cart: Object Detection &amp; Tracking</p>
+        <p class="article-desc">Explored the design of an intelligent retail shopping cart using computer vision — real-time object detection pipelines, multi-object tracking, edge AI deployment, and practical tradeoffs of bringing ML to constrained hardware.</p>
+        <div class="article-footer">
+          <div class="topic-tags">
+            <span class="topic-tag">Object Detection</span>
+            <span class="topic-tag">Multi-Object Tracking</span>
+            <span class="topic-tag">Edge AI</span>
+          </div>
+          <span class="read-link">Read <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+    </section>
+
+    <!-- COMPUTER VISION -->
+    <section class="category-block" id="computer-vision">
+      <div class="category-header">
+        <span class="category-badge badge-cv">Computer Vision</span>
+        <span class="category-count">1 article</span>
+      </div>
+      <div class="source-label"><span class="source-dot"></span>Technolynx</div>
+
+      <a class="article-card"
+         href="https://www.technolynx.com/post/case-study-action-recognition-for-security"
+         target="_blank" rel="noopener">
+        <p class="article-title">Action Recognition for Intelligent Security Systems</p>
+        <p class="article-desc">Examined deep learning approaches for recognizing human activity in surveillance environments — temporal modeling, real-time inference constraints, and the engineering challenges of deploying video understanding models in sensitive, latency-critical contexts.</p>
+        <div class="article-footer">
+          <div class="topic-tags">
+            <span class="topic-tag">Video Understanding</span>
+            <span class="topic-tag">Temporal Modeling</span>
+            <span class="topic-tag">Real-Time Inference</span>
+          </div>
+          <span class="read-link">Read <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+    </section>
+
+    <!-- AI APPLICATIONS -->
+    <section class="category-block" id="ai-applications">
+      <div class="category-header">
+        <span class="category-badge badge-apps">AI Applications</span>
+        <span class="category-count">2 articles</span>
+      </div>
+      <div class="source-label"><span class="source-dot"></span>Technolynx</div>
+
+      <a class="article-card"
+         href="https://www.technolynx.com/post/artificial-intelligence-in-healthcare"
+         target="_blank" rel="noopener">
+        <p class="article-title">Artificial Intelligence in Healthcare</p>
+        <p class="article-desc">A comprehensive overview of AI across the healthcare stack — medical imaging, predictive analytics, diagnostics, personalized medicine, and what responsible deployment actually looks like in high-stakes clinical environments.</p>
+        <div class="article-footer">
+          <div class="topic-tags">
+            <span class="topic-tag">Medical Imaging</span>
+            <span class="topic-tag">Predictive Analytics</span>
+            <span class="topic-tag">Responsible AI</span>
+          </div>
+          <span class="read-link">Read <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <a class="article-card"
+         href="https://www.technolynx.com/post/case-study-generative-ai-for-stock-market-prediction"
+         target="_blank" rel="noopener">
+        <p class="article-title">Generative AI for Stock Market Prediction</p>
+        <p class="article-desc">Explored how large language models can augment financial forecasting by incorporating market data, news signals, and sentiment analysis — while honestly addressing the practical limitations and risks of deploying generative AI in high-stakes decision-making.</p>
+        <div class="article-footer">
+          <div class="topic-tags">
+            <span class="topic-tag">LLMs</span>
+            <span class="topic-tag">Time Series</span>
+            <span class="topic-tag">Financial AI</span>
+            <span class="topic-tag">Sentiment Analysis</span>
+          </div>
+          <span class="read-link">Read <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+    </section>
+
+    <!-- ML FUNDAMENTALS -->
+    <section class="category-block" id="ml-fundamentals">
+      <div class="category-header">
+        <span class="category-badge badge-ml">ML Fundamentals</span>
+        <span class="category-count">1 article</span>
+      </div>
+      <div class="source-label"><span class="source-dot"></span>GeeksforGeeks</div>
+
+      <a class="article-card"
+         href="https://www.geeksforgeeks.org/machine-learning/sklearn-iterative-dichotomiser-3-id3-algorithms/"
+         target="_blank" rel="noopener">
+        <p class="article-title">Understanding the ID3 Decision Tree Algorithm</p>
+        <p class="article-desc">A rigorous walkthrough of Iterative Dichotomiser 3 — entropy, information gain, recursive tree construction, and practical implementation using Scikit-learn. Written for practitioners who want the mathematical intuition alongside the code.</p>
+        <div class="article-footer">
+          <div class="topic-tags">
+            <span class="topic-tag">Decision Trees</span>
+            <span class="topic-tag">Information Theory</span>
+            <span class="topic-tag">Scikit-learn</span>
+            <span class="topic-tag">Python</span>
+          </div>
+          <span class="read-link">Read <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+    </section>
+
+    <!-- COMING SOON -->
+    <section class="category-block">
+      <div class="category-header">
+        <span class="category-badge badge-research">Research Writing — Coming Soon</span>
+      </div>
+      <div class="coming-card">
+        <p class="coming-card-title">Neural Backend Speaker Verification for Dysarthric Speech</p>
+        <p class="coming-card-sub">M.Tech research · IEEE submission in preparation</p>
+      </div>
+      <div class="coming-card">
+        <p class="coming-card-title">Cross-Lingual Generalization in Speaker Embedding Models</p>
+        <p class="coming-card-sub">M.Tech research · Ongoing</p>
+      </div>
+      <div class="coming-card">
+        <p class="coming-card-title">Representation Learning for Pathological Speech Robustness</p>
+        <p class="coming-card-sub">M.Tech research · Ongoing</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- RESEARCH SECTION -->
+<section class="research-section" id="research-section">
+  <div class="research-inner">
+    <p class="section-eyebrow">Original Research</p>
+    <h2>Building at the frontier of<br>speech AI and accessibility</h2>
+    <p class="research-intro">
+      My M.Tech research at DA-IICT focuses on speaker verification for people with dysarthria — a motor speech disorder that causes significant deviation from the healthy speech distributions that most speaker models are trained on. The challenge: build systems that are robust, cross-lingual, and deployable in real healthcare contexts.
+    </p>
+    <div class="research-grid">
+      <div class="research-card">
+        <p class="research-card-title">Neural Backend Speaker Verification for Dysarthric Speech</p>
+        <p class="research-card-desc">Proposed a learned similarity model using ECAPA-TDNN embeddings with neural scoring to outperform cosine similarity baselines under pathological, cross-lingual conditions.</p>
+        <span class="research-card-status status-prep">IEEE · In preparation</span>
+      </div>
+      <div class="research-card">
+        <p class="research-card-title">Interactive Image Segmentation with Click-Guided Deep Networks</p>
+        <p class="research-card-desc">Built a modified MFP-ResNet-UNet with 5-channel input combining RGB + click maps. Achieved Dice score 0.7994 on BSDS500. Full PyTorch pipeline for training and evaluation.</p>
+        <span class="research-card-status status-ongoing">Computer Vision · Completed</span>
+      </div>
+      <div class="research-card">
+        <p class="research-card-title">Time Series Forecasting Under Non-Stationary Conditions</p>
+        <p class="research-card-desc">Benchmarked ARIMA, Prophet, and LSTM models using rolling-window evaluation. Investigated temporal drift and built reproducible experiment pipelines at the ESOC Research Program.</p>
+        <span class="research-card-status status-ongoing">Forecasting · Research collaboration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div>
+      <p class="section-eyebrow" style="color:var(--ink-4); font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; margin-bottom:0.75rem;">About me</p>
+      <h2>Researcher who writes.<br>Writer who builds.</h2>
+      <p>
+        I'm an M.Tech student in Machine Learning at DA-IICT Gandhinagar, researching speaker verification for dysarthric speech. I work with deep speaker embedding models (ECAPA-TDNN, CAM++), design cross-lingual evaluation pipelines in PyTorch, and think carefully about how AI can work for people at the margins of what current systems were built for.
+      </p>
+      <p>
+        My writing comes from that same place: I want to explain not just what systems do but why they're designed the way they are, where they break, and what the engineering tradeoffs actually mean. I've published technical case studies and tutorials, and I'm working toward original research writing that can bridge the lab and the broader technical community.
+      </p>
+      <p>
+        I'm a Harvard WEAmplify Scholar, GATE CSE top 3.54%, and a Microsoft Learn Student Ambassador.
+      </p>
+    </div>
+    <div>
+      <p class="sidebar-heading" style="margin-bottom:1rem;">Recognition</p>
+      <div class="awards-list" style="margin-bottom:2rem;">
+        <div class="award-row">
+          <span class="award-icon">🎓</span>
+          <div>
+            <p class="award-name">Harvard WEAmplify Scholar</p>
+            <p class="award-sub">Selected scholar in Harvard's WEAmplify program</p>
+          </div>
+        </div>
+        <div class="award-row">
+          <span class="award-icon">📊</span>
+          <div>
+            <p class="award-name">GATE CSE 2024 — 96.46 percentile</p>
+            <p class="award-sub">Top 3.54% nationally in Computer Science</p>
+          </div>
+        </div>
+        <div class="award-row">
+          <span class="award-icon">📜</span>
+          <div>
+            <p class="award-name">UGC NET Qualified</p>
+            <p class="award-sub">PhD eligibility — Computer Science &amp; Applications</p>
+          </div>
+        </div>
+        <div class="award-row">
+          <span class="award-icon">🔵</span>
+          <div>
+            <p class="award-name">Microsoft Learn Student Ambassador</p>
+            <p class="award-sub">Beta-level ambassador</p>
+          </div>
+        </div>
+      </div>
+      <p class="sidebar-heading" style="margin-bottom:0.75rem;">Get in touch</p>
+      <a href="mailto:agarwalavantikaint@gmail.com" class="contact-row">
+        <span class="contact-icon">✉</span> agarwalavantikaint@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/agarwalavantika" target="_blank" rel="noopener" class="contact-row">
+        <span class="contact-icon">💼</span> linkedin.com/in/agarwalavantika
+      </a>
+      <a href="https://github.com/agarwalavantika" target="_blank" rel="noopener" class="contact-row">
+        <span class="contact-icon">⌨</span> github.com/agarwalavantika
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Avantika Agarwal · Technical Writing Portfolio · 2025
+</footer>
+
+<script>
+  const links = document.querySelectorAll('.sidebar-link');
+  const sections = document.querySelectorAll('.category-block[id]');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`.sidebar-link[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => io.observe(s));
+</script>
+
+</body>
+</html>
